@@ -3,373 +3,1458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub</title>
+
+    <title>StudentOS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <aside class="sidebar">
-        <div class="logo">Student<span>Hub</span></div>
+<div class="app">
 
-        <nav>
-            <button class="nav-item active" data-page="dashboard">🏠 Dashboard</button>
-            <button class="nav-item" data-page="subjects">📚 Subjects</button>
-            <button class="nav-item" data-page="tasks">✅ Tasks</button>
-            <button class="nav-item" data-page="schedule">📅 Schedule</button>
-            <button class="nav-item" data-page="grades">📊 Grades</button>
-        </nav>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">S</div>
+
+            <div class="brand-text">
+                <strong>StudentOS</strong>
+                <span>Student Portal</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <span class="sidebar-label">MAIN</span>
+
+            <button class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-page="tasks">
+                <span class="nav-icon">✓</span>
+                Tasks
+                <span class="nav-badge" id="taskBadge">0</span>
+            </button>
+
+            <button class="nav-item" data-page="subjects">
+                <span class="nav-icon">▦</span>
+                Subjects
+            </button>
+
+            <button class="nav-item" data-page="schedule">
+                <span class="nav-icon">◫</span>
+                Schedule
+            </button>
+
+            <button class="nav-item" data-page="grades">
+                <span class="nav-icon">◈</span>
+                Grades
+            </button>
+        </div>
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">TOOLS</span>
+
+            <button class="nav-item" data-page="notes">
+                <span class="nav-icon">✎</span>
+                Notes
+            </button>
+
+            <button class="nav-item" data-page="calendar">
+                <span class="nav-icon">□</span>
+                Calendar
+            </button>
+
+            <button class="nav-item" data-page="timer">
+                <span class="nav-icon">◷</span>
+                Study Timer
+            </button>
+
+            <button class="nav-item" data-page="attendance">
+                <span class="nav-icon">◎</span>
+                Attendance
+            </button>
+        </div>
 
         <div class="sidebar-bottom">
-            <button class="nav-item">⚙️ Settings</button>
+
+            <button class="nav-item" id="themeToggle">
+                <span class="nav-icon">☾</span>
+                <span id="themeText">Dark mode</span>
+            </button>
+
+            <button class="nav-item" data-page="settings">
+                <span class="nav-icon">⚙</span>
+                Settings
+            </button>
+
+            <div class="user-card">
+
+                <div class="avatar">J</div>
+
+                <div class="user-info">
+                    <strong>Jordan</strong>
+                    <span>Grade 11</span>
+                </div>
+
+                <button class="more-button">•••</button>
+
+            </div>
+
         </div>
+
     </aside>
 
+
+    <!-- MAIN -->
     <main class="main">
 
-        <header>
-            <div>
-                <p class="welcome">Welcome back</p>
-                <h1>Student Dashboard</h1>
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                StudentOS
             </div>
 
-            <div class="profile">
-                <div class="avatar">S</div>
-                <div>
-                    <strong>Student</strong>
-                    <small>Class 11-A</small>
-                </div>
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="search" id="globalSearch" placeholder="Search anything...">
+                <kbd>Ctrl K</kbd>
             </div>
+
+            <div class="topbar-actions">
+
+                <button class="icon-button" id="notificationButton">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="date-display" id="currentDate"></div>
+
+                <div class="top-avatar">J</div>
+
+            </div>
+
         </header>
 
-        <!-- DASHBOARD -->
-        <section id="dashboard" class="page active-page">
 
-            <div class="stats">
-                <div class="stat-card">
-                    <span>📚</span>
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- DASHBOARD -->
+            <section class="page active-page" id="dashboard">
+
+                <div class="page-header">
+
                     <div>
-                        <small>Subjects</small>
-                        <h2>6</h2>
+                        <div class="eyebrow">FRIDAY, AUGUST 28</div>
+                        <h1>Good afternoon, Jordan.</h1>
+                        <p>Here is what's happening with your studies today.</p>
                     </div>
+
+                    <button class="primary-button" data-page="tasks">
+                        + Add task
+                    </button>
+
                 </div>
 
-                <div class="stat-card">
-                    <span>✅</span>
-                    <div>
-                        <small>Completed Tasks</small>
-                        <h2 id="completedCount">12</h2>
+
+                <!-- HERO -->
+                <div class="hero">
+
+                    <div class="hero-content">
+
+                        <span class="hero-label">YOUR WEEK</span>
+
+                        <h2>You're doing great.</h2>
+
+                        <p>
+                            You've completed <strong id="heroCompleted">0</strong>
+                            tasks this week.
+                        </p>
+
+                        <div class="hero-progress">
+
+                            <div class="hero-progress-bar">
+                                <div id="heroProgress"></div>
+                            </div>
+
+                            <span id="heroProgressText">0%</span>
+
+                        </div>
+
                     </div>
+
+                    <div class="hero-decoration">
+                        <div class="hero-circle circle-one"></div>
+                        <div class="hero-circle circle-two"></div>
+                        <div class="hero-circle circle-three"></div>
+                    </div>
+
                 </div>
 
-                <div class="stat-card">
-                    <span>📝</span>
-                    <div>
-                        <small>Average Grade</small>
-                        <h2>89%</h2>
+
+                <!-- STATS -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon purple">✓</span>
+                            <span class="trend positive">+12%</span>
+                        </div>
+
+                        <span class="stat-label">Tasks completed</span>
+                        <strong id="completedStat">0</strong>
+                        <span class="stat-sub">this week</span>
+
                     </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon blue">◈</span>
+                            <span class="trend positive">+3.2%</span>
+                        </div>
+
+                        <span class="stat-label">Average grade</span>
+                        <strong>89.4%</strong>
+                        <span class="stat-sub">across 6 subjects</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon green">◎</span>
+                            <span class="trend positive">+1.4%</span>
+                        </div>
+
+                        <span class="stat-label">Attendance</span>
+                        <strong>94%</strong>
+                        <span class="stat-sub">this semester</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <span class="stat-icon orange">◷</span>
+                            <span class="trend neutral">Today</span>
+                        </div>
+
+                        <span class="stat-label">Study time</span>
+                        <strong>2h 35m</strong>
+                        <span class="stat-sub">goal: 3 hours</span>
+
+                    </div>
+
                 </div>
 
-                <div class="stat-card">
-                    <span>📅</span>
-                    <div>
-                        <small>Upcoming</small>
-                        <h2>4</h2>
-                    </div>
-                </div>
-            </div>
 
-            <div class="grid">
+                <div class="dashboard-grid">
+
+                    <!-- DEADLINES -->
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Upcoming deadlines</h2>
+                                <p>Your next assignments</p>
+                            </div>
+
+                            <button class="text-button" data-page="tasks">
+                                View all
+                            </button>
+
+                        </div>
+
+                        <div id="upcomingTasks"></div>
+
+                    </div>
+
+
+                    <!-- TODAY -->
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Today's schedule</h2>
+                                <p>Friday, August 28</p>
+                            </div>
+
+                            <button class="text-button" data-page="schedule">
+                                Full schedule
+                            </button>
+
+                        </div>
+
+                        <div class="timeline">
+
+                            <div class="timeline-item active">
+                                <div class="timeline-time">08:30</div>
+
+                                <div class="timeline-line"></div>
+
+                                <div class="timeline-content">
+                                    <strong>Mathematics</strong>
+                                    <span>Room 204 · 60 min</span>
+                                </div>
+                            </div>
+
+
+                            <div class="timeline-item">
+                                <div class="timeline-time">10:15</div>
+
+                                <div class="timeline-line"></div>
+
+                                <div class="timeline-content">
+                                    <strong>English</strong>
+                                    <span>Room 112 · 60 min</span>
+                                </div>
+                            </div>
+
+
+                            <div class="timeline-item">
+                                <div class="timeline-time">12:00</div>
+
+                                <div class="timeline-line"></div>
+
+                                <div class="timeline-content">
+                                    <strong>Computer Science</strong>
+                                    <span>Computer Lab · 90 min</span>
+                                </div>
+                            </div>
+
+
+                            <div class="timeline-item">
+                                <div class="timeline-time">14:00</div>
+
+                                <div class="timeline-line"></div>
+
+                                <div class="timeline-content">
+                                    <strong>History</strong>
+                                    <span>Room 305 · 60 min</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOWER GRID -->
+                <div class="dashboard-grid">
+
+                    <!-- SUBJECT PROGRESS -->
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Subject performance</h2>
+                                <p>Your current grades</p>
+                            </div>
+
+                            <button class="text-button" data-page="grades">
+                                Details
+                            </button>
+
+                        </div>
+
+                        <div class="subject-performance">
+
+                            <div class="performance-row">
+                                <span class="performance-icon">M</span>
+
+                                <div class="performance-name">
+                                    <strong>Mathematics</strong>
+                                    <span>Excellent</span>
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div style="width:92%"></div>
+                                </div>
+
+                                <strong>92%</strong>
+                            </div>
+
+
+                            <div class="performance-row">
+                                <span class="performance-icon">E</span>
+
+                                <div class="performance-name">
+                                    <strong>English</strong>
+                                    <span>Good</span>
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div style="width:87%"></div>
+                                </div>
+
+                                <strong>87%</strong>
+                            </div>
+
+
+                            <div class="performance-row">
+                                <span class="performance-icon">C</span>
+
+                                <div class="performance-name">
+                                    <strong>Computer Science</strong>
+                                    <span>Excellent</span>
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div style="width:96%"></div>
+                                </div>
+
+                                <strong>96%</strong>
+                            </div>
+
+
+                            <div class="performance-row">
+                                <span class="performance-icon">H</span>
+
+                                <div class="performance-name">
+                                    <strong>History</strong>
+                                    <span>Good</span>
+                                </div>
+
+                                <div class="mini-progress">
+                                    <div style="width:88%"></div>
+                                </div>
+
+                                <strong>88%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK NOTES -->
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Quick note</h2>
+                                <p>Save something for later</p>
+                            </div>
+
+                            <span class="note-icon">✎</span>
+
+                        </div>
+
+                        <textarea
+                            id="quickNote"
+                            class="quick-note"
+                            placeholder="Write a note..."
+                        ></textarea>
+
+                        <div class="note-footer">
+                            <span id="noteStatus">Saved locally</span>
+                            <button class="primary-button small" id="saveNote">
+                                Save note
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TASKS -->
+            <section class="page" id="tasks">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">PRODUCTIVITY</div>
+                        <h1>Tasks</h1>
+                        <p>Keep track of your assignments and deadlines.</p>
+                    </div>
+
+                    <button class="primary-button" id="openTaskModal">
+                        + New task
+                    </button>
+
+                </div>
+
+
+                <div class="task-toolbar">
+
+                    <div class="filter-tabs">
+
+                        <button class="filter-tab active" data-filter="all">
+                            All
+                        </button>
+
+                        <button class="filter-tab" data-filter="active">
+                            Active
+                        </button>
+
+                        <button class="filter-tab" data-filter="completed">
+                            Completed
+                        </button>
+
+                    </div>
+
+                    <select id="subjectFilter" class="select">
+                        <option value="all">All subjects</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="English">English</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="History">History</option>
+                        <option value="Geography">Geography</option>
+                    </select>
+
+                </div>
+
 
                 <div class="card">
-                    <div class="card-header">
-                        <h2>Today's Schedule</h2>
-                        <button class="small-btn" data-page="schedule">View all</button>
-                    </div>
-
-                    <div class="schedule-item">
-                        <div class="time">08:30</div>
-                        <div>
-                            <strong>Mathematics</strong>
-                            <p>Room 204</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-item">
-                        <div class="time">10:15</div>
-                        <div>
-                            <strong>English</strong>
-                            <p>Room 112</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-item">
-                        <div class="time">12:00</div>
-                        <div>
-                            <strong>Computer Science</strong>
-                            <p>Computer Lab</p>
-                        </div>
-                    </div>
+                    <div id="fullTaskList"></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Upcoming Tasks</h2>
-                        <button class="small-btn" data-page="tasks">View all</button>
+            </section>
+
+
+            <!-- SUBJECTS -->
+            <section class="page" id="subjects">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">ACADEMICS</div>
+                        <h1>Subjects</h1>
+                        <p>Your classes and current performance.</p>
                     </div>
 
-                    <div id="dashboardTasks"></div>
                 </div>
 
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h2>Subject Progress</h2>
-                </div>
+                <div class="subjects-grid">
 
-                <div class="progress-list">
-
-                    <div class="progress-row">
-                        <div>
-                            <strong>Mathematics</strong>
-                            <span>92%</span>
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon purple-bg">M</div>
+                            <span class="grade-badge">92%</span>
                         </div>
-                        <div class="progress">
+
+                        <h2>Mathematics</h2>
+                        <p>Mr. Anderson</p>
+
+                        <div class="subject-progress">
                             <div style="width:92%"></div>
                         </div>
+
+                        <div class="subject-footer">
+                            <span>8 assignments</span>
+                            <span>Room 204</span>
+                        </div>
                     </div>
 
-                    <div class="progress-row">
-                        <div>
-                            <strong>English</strong>
-                            <span>87%</span>
+
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon blue-bg">E</div>
+                            <span class="grade-badge">87%</span>
                         </div>
-                        <div class="progress">
+
+                        <h2>English</h2>
+                        <p>Mrs. Johnson</p>
+
+                        <div class="subject-progress">
                             <div style="width:87%"></div>
                         </div>
+
+                        <div class="subject-footer">
+                            <span>6 assignments</span>
+                            <span>Room 112</span>
+                        </div>
                     </div>
 
-                    <div class="progress-row">
-                        <div>
+
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon green-bg">C</div>
+                            <span class="grade-badge">96%</span>
+                        </div>
+
+                        <h2>Computer Science</h2>
+                        <p>Mr. Brown</p>
+
+                        <div class="subject-progress">
+                            <div style="width:96%"></div>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>5 assignments</span>
+                            <span>Computer Lab</span>
+                        </div>
+                    </div>
+
+
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon orange-bg">H</div>
+                            <span class="grade-badge">88%</span>
+                        </div>
+
+                        <h2>History</h2>
+                        <p>Mrs. Taylor</p>
+
+                        <div class="subject-progress">
+                            <div style="width:88%"></div>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>4 assignments</span>
+                            <span>Room 305</span>
+                        </div>
+                    </div>
+
+
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon pink-bg">G</div>
+                            <span class="grade-badge">90%</span>
+                        </div>
+
+                        <h2>Geography</h2>
+                        <p>Mr. Wilson</p>
+
+                        <div class="subject-progress">
+                            <div style="width:90%"></div>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>5 assignments</span>
+                            <span>Room 210</span>
+                        </div>
+                    </div>
+
+
+                    <div class="subject-card">
+                        <div class="subject-top">
+                            <div class="large-subject-icon cyan-bg">C</div>
+                            <span class="grade-badge">84%</span>
+                        </div>
+
+                        <h2>Chemistry</h2>
+                        <p>Mrs. Davis</p>
+
+                        <div class="subject-progress">
+                            <div style="width:84%"></div>
+                        </div>
+
+                        <div class="subject-footer">
+                            <span>7 assignments</span>
+                            <span>Lab 1</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SCHEDULE -->
+            <section class="page" id="schedule">
+
+                <div class="page-header">
+                    <div>
+                        <div class="eyebrow">THIS WEEK</div>
+                        <h1>Schedule</h1>
+                        <p>Your weekly class timetable.</p>
+                    </div>
+                </div>
+
+                <div class="week-grid">
+
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span>MON</span>
+                            <strong>24</strong>
+                        </div>
+
+                        <div class="class-block purple">
+                            <strong>Mathematics</strong>
+                            <span>08:30 · Room 204</span>
+                        </div>
+
+                        <div class="class-block blue">
+                            <strong>English</strong>
+                            <span>10:15 · Room 112</span>
+                        </div>
+
+                        <div class="class-block green">
                             <strong>Computer Science</strong>
-                            <span>95%</span>
+                            <span>12:00 · Lab</span>
                         </div>
-                        <div class="progress">
-                            <div style="width:95%"></div>
+                    </div>
+
+
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span>TUE</span>
+                            <strong>25</strong>
+                        </div>
+
+                        <div class="class-block orange">
+                            <strong>Chemistry</strong>
+                            <span>08:30 · Lab 1</span>
+                        </div>
+
+                        <div class="class-block purple">
+                            <strong>Mathematics</strong>
+                            <span>10:15 · Room 204</span>
+                        </div>
+
+                        <div class="class-block pink">
+                            <strong>Geography</strong>
+                            <span>12:00 · Room 210</span>
+                        </div>
+                    </div>
+
+
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span>WED</span>
+                            <strong>26</strong>
+                        </div>
+
+                        <div class="class-block green">
+                            <strong>Computer Science</strong>
+                            <span>08:30 · Lab</span>
+                        </div>
+
+                        <div class="class-block orange">
+                            <strong>History</strong>
+                            <span>10:15 · Room 305</span>
+                        </div>
+
+                        <div class="class-block purple">
+                            <strong>Mathematics</strong>
+                            <span>12:00 · Room 204</span>
+                        </div>
+                    </div>
+
+
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span>THU</span>
+                            <strong>27</strong>
+                        </div>
+
+                        <div class="class-block blue">
+                            <strong>English</strong>
+                            <span>08:30 · Room 112</span>
+                        </div>
+
+                        <div class="class-block orange">
+                            <strong>Chemistry</strong>
+                            <span>10:15 · Lab 1</span>
+                        </div>
+
+                        <div class="class-block pink">
+                            <strong>Geography</strong>
+                            <span>12:00 · Room 210</span>
+                        </div>
+                    </div>
+
+
+                    <div class="day-column today">
+                        <div class="day-header">
+                            <span>FRI</span>
+                            <strong>28</strong>
+                        </div>
+
+                        <div class="class-block purple">
+                            <strong>Mathematics</strong>
+                            <span>08:30 · Room 204</span>
+                        </div>
+
+                        <div class="class-block blue">
+                            <strong>English</strong>
+                            <span>10:15 · Room 112</span>
+                        </div>
+
+                        <div class="class-block green">
+                            <strong>Computer Science</strong>
+                            <span>12:00 · Lab</span>
+                        </div>
+
+                        <div class="class-block orange">
+                            <strong>History</strong>
+                            <span>14:00 · Room 305</span>
                         </div>
                     </div>
 
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-        <!-- SUBJECTS -->
-        <section id="subjects" class="page">
 
-            <h2 class="page-title">My Subjects</h2>
+            <!-- GRADES -->
+            <section class="page" id="grades">
 
-            <div class="subject-grid">
-
-                <div class="subject-card">
-                    <div class="subject-icon">∑</div>
-                    <h3>Mathematics</h3>
-                    <p>Teacher: Mr. Smith</p>
-                    <strong>92%</strong>
+                <div class="page-header">
+                    <div>
+                        <div class="eyebrow">ACADEMIC PERFORMANCE</div>
+                        <h1>Grades</h1>
+                        <p>Track your performance throughout the semester.</p>
+                    </div>
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-icon">A</div>
-                    <h3>English</h3>
-                    <p>Teacher: Mrs. Johnson</p>
-                    <strong>87%</strong>
+
+                <div class="grade-summary">
+
+                    <div class="grade-big-card">
+                        <span>Overall average</span>
+                        <strong>89.4%</strong>
+                        <div class="grade-ring">
+                            <div class="ring-inner">A</div>
+                        </div>
+                        <p>Excellent academic performance</p>
+                    </div>
+
+
+                    <div class="grade-overview-card">
+
+                        <h2>Performance overview</h2>
+
+                        <div class="bar-chart">
+
+                            <div class="bar-item">
+                                <span>Math</span>
+                                <div class="bar">
+                                    <div style="height:92%"></div>
+                                </div>
+                                <strong>92</strong>
+                            </div>
+
+                            <div class="bar-item">
+                                <span>English</span>
+                                <div class="bar">
+                                    <div style="height:87%"></div>
+                                </div>
+                                <strong>87</strong>
+                            </div>
+
+                            <div class="bar-item">
+                                <span>CS</span>
+                                <div class="bar">
+                                    <div style="height:96%"></div>
+                                </div>
+                                <strong>96</strong>
+                            </div>
+
+                            <div class="bar-item">
+                                <span>History</span>
+                                <div class="bar">
+                                    <div style="height:88%"></div>
+                                </div>
+                                <strong>88</strong>
+                            </div>
+
+                            <div class="bar-item">
+                                <span>Geo</span>
+                                <div class="bar">
+                                    <div style="height:90%"></div>
+                                </div>
+                                <strong>90</strong>
+                            </div>
+
+                            <div class="bar-item">
+                                <span>Chem</span>
+                                <div class="bar">
+                                    <div style="height:84%"></div>
+                                </div>
+                                <strong>84</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-icon">💻</div>
-                    <h3>Computer Science</h3>
-                    <p>Teacher: Mr. Brown</p>
-                    <strong>95%</strong>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Recent grades</h2>
+                            <p>Your latest results</p>
+                        </div>
+                    </div>
+
+                    <div class="grades-table">
+
+                        <div class="grade-row heading">
+                            <span>Subject</span>
+                            <span>Assignment</span>
+                            <span>Date</span>
+                            <span>Grade</span>
+                        </div>
+
+                        <div class="grade-row">
+                            <span>Mathematics</span>
+                            <span>Quadratic Equations</span>
+                            <span>Aug 27</span>
+                            <strong>94%</strong>
+                        </div>
+
+                        <div class="grade-row">
+                            <span>Computer Science</span>
+                            <span>Algorithms Test</span>
+                            <span>Aug 26</span>
+                            <strong>98%</strong>
+                        </div>
+
+                        <div class="grade-row">
+                            <span>English</span>
+                            <span>Essay: Technology</span>
+                            <span>Aug 25</span>
+                            <strong>88%</strong>
+                        </div>
+
+                        <div class="grade-row">
+                            <span>History</span>
+                            <span>World War II</span>
+                            <span>Aug 23</span>
+                            <strong>91%</strong>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-icon">⚗</div>
-                    <h3>Chemistry</h3>
-                    <p>Teacher: Mrs. Davis</p>
-                    <strong>84%</strong>
+            </section>
+
+
+            <!-- NOTES -->
+            <section class="page" id="notes">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">PERSONAL</div>
+                        <h1>Notes</h1>
+                        <p>Keep your important thoughts and reminders.</p>
+                    </div>
+
+                    <button class="primary-button" id="addNoteButton">
+                        + New note
+                    </button>
+
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-icon">🌍</div>
-                    <h3>Geography</h3>
-                    <p>Teacher: Mr. Wilson</p>
-                    <strong>90%</strong>
+                <div class="notes-grid" id="notesGrid"></div>
+
+            </section>
+
+
+            <!-- CALENDAR -->
+            <section class="page" id="calendar">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">PLANNING</div>
+                        <h1>Calendar</h1>
+                        <p>August 2026</p>
+                    </div>
+
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-icon">📖</div>
-                    <h3>History</h3>
-                    <p>Teacher: Mrs. Taylor</p>
-                    <strong>88%</strong>
+
+                <div class="calendar-card">
+
+                    <div class="calendar-header">
+
+                        <button class="calendar-nav">‹</button>
+
+                        <h2>August 2026</h2>
+
+                        <button class="calendar-nav">›</button>
+
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                        <span>Sun</span>
+                    </div>
+
+                    <div class="calendar-days">
+
+                        <span class="muted">27</span>
+                        <span class="muted">28</span>
+                        <span class="muted">29</span>
+                        <span class="muted">30</span>
+                        <span class="muted">31</span>
+
+                        <span>1</span>
+                        <span>2</span>
+
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+
+                        <span>10</span>
+                        <span>11</span>
+                        <span>12</span>
+                        <span>13</span>
+                        <span>14</span>
+                        <span>15</span>
+                        <span>16</span>
+
+                        <span>17</span>
+                        <span>18</span>
+                        <span>19</span>
+                        <span>20</span>
+                        <span>21</span>
+                        <span>22</span>
+                        <span>23</span>
+
+                        <span>24</span>
+                        <span>25</span>
+                        <span>26</span>
+                        <span>27</span>
+
+                        <span class="today-number">28</span>
+
+                        <span>29</span>
+                        <span>30</span>
+
+                        <span>31</span>
+
+                    </div>
+
                 </div>
 
-            </div>
+            </section>
 
-        </section>
 
-        <!-- TASKS -->
-        <section id="tasks" class="page">
+            <!-- TIMER -->
+            <section class="page" id="timer">
 
-            <div class="page-heading">
-                <div>
-                    <h2 class="page-title">Tasks</h2>
-                    <p>Add and manage your assignments.</p>
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">FOCUS</div>
+                        <h1>Study Timer</h1>
+                        <p>Use focused study sessions to stay productive.</p>
+                    </div>
+
                 </div>
 
-                <button class="primary-btn" id="addTaskBtn">+ Add Task</button>
-            </div>
 
-            <div class="card">
-                <div id="taskList"></div>
-            </div>
+                <div class="timer-layout">
 
-        </section>
+                    <div class="timer-card">
 
-        <!-- SCHEDULE -->
-        <section id="schedule" class="page">
+                        <div class="timer-mode">
+                            <button class="active" data-minutes="25">25 min</button>
+                            <button data-minutes="50">50 min</button>
+                            <button data-minutes="5">5 min</button>
+                        </div>
 
-            <h2 class="page-title">Weekly Schedule</h2>
+                        <div class="timer-circle">
 
-            <div class="card schedule-table">
+                            <div class="timer-inner">
+                                <span id="timerMinutes">25</span>
+                                <small>FOCUS</small>
+                            </div>
 
-                <div class="day">
-                    <h3>Monday</h3>
-                    <p>08:30 — Mathematics</p>
-                    <p>10:15 — English</p>
-                    <p>12:00 — Computer Science</p>
-                    <p>14:00 — History</p>
+                        </div>
+
+                        <div class="timer-controls">
+                            <button class="timer-start" id="timerStart">Start</button>
+                            <button class="timer-reset" id="timerReset">Reset</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            <div>
+                                <h2>Today's focus</h2>
+                                <p>Your study statistics</p>
+                            </div>
+                        </div>
+
+                        <div class="focus-stat">
+                            <span>Sessions</span>
+                            <strong id="sessionCount">0</strong>
+                        </div>
+
+                        <div class="focus-stat">
+                            <span>Focus time</span>
+                            <strong id="focusTime">0m</strong>
+                        </div>
+
+                        <div class="focus-stat">
+                            <span>Daily goal</span>
+                            <strong>3h</strong>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="day">
-                    <h3>Tuesday</h3>
-                    <p>08:30 — Chemistry</p>
-                    <p>10:15 — Mathematics</p>
-                    <p>12:00 — Geography</p>
-                    <p>14:00 — English</p>
+            </section>
+
+
+            <!-- ATTENDANCE -->
+            <section class="page" id="attendance">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">SEMESTER</div>
+                        <h1>Attendance</h1>
+                        <p>Your attendance statistics.</p>
+                    </div>
+
                 </div>
 
-                <div class="day">
-                    <h3>Wednesday</h3>
-                    <p>08:30 — Computer Science</p>
-                    <p>10:15 — History</p>
-                    <p>12:00 — Mathematics</p>
+
+                <div class="attendance-layout">
+
+                    <div class="attendance-main">
+
+                        <div class="attendance-circle">
+                            <span>94%</span>
+                            <small>Present</small>
+                        </div>
+
+                        <div class="attendance-legend">
+
+                            <div>
+                                <span class="legend-dot present"></span>
+                                <span>Present</span>
+                                <strong>94%</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot late"></span>
+                                <span>Late</span>
+                                <strong>3%</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot absent"></span>
+                                <span>Absent</span>
+                                <strong>3%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card attendance-days">
+
+                        <div class="card-header">
+                            <div>
+                                <h2>Recent attendance</h2>
+                            </div>
+                        </div>
+
+                        <div class="attendance-row">
+                            <span>Aug 28</span>
+                            <strong class="attendance-present">Present</strong>
+                        </div>
+
+                        <div class="attendance-row">
+                            <span>Aug 27</span>
+                            <strong class="attendance-present">Present</strong>
+                        </div>
+
+                        <div class="attendance-row">
+                            <span>Aug 26</span>
+                            <strong class="attendance-late">Late</strong>
+                        </div>
+
+                        <div class="attendance-row">
+                            <span>Aug 25</span>
+                            <strong class="attendance-present">Present</strong>
+                        </div>
+
+                        <div class="attendance-row">
+                            <span>Aug 24</span>
+                            <strong class="attendance-absent">Absent</strong>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="day">
-                    <h3>Thursday</h3>
-                    <p>08:30 — English</p>
-                    <p>10:15 — Chemistry</p>
-                    <p>12:00 — Geography</p>
+            </section>
+
+
+            <!-- SETTINGS -->
+            <section class="page" id="settings">
+
+                <div class="page-header">
+
+                    <div>
+                        <div class="eyebrow">ACCOUNT</div>
+                        <h1>Settings</h1>
+                        <p>Customize your StudentOS experience.</p>
+                    </div>
+
                 </div>
 
-                <div class="day">
-                    <h3>Friday</h3>
-                    <p>08:30 — Mathematics</p>
-                    <p>10:15 — Computer Science</p>
-                    <p>12:00 — English</p>
+
+                <div class="settings-card">
+
+                    <div class="settings-section">
+
+                        <h2>Appearance</h2>
+
+                        <div class="setting-row">
+
+                            <div>
+                                <strong>Theme</strong>
+                                <span>Choose how StudentOS looks.</span>
+                            </div>
+
+                            <button class="secondary-button" id="settingsTheme">
+                                Toggle theme
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-section">
+
+                        <h2>Notifications</h2>
+
+                        <div class="setting-row">
+
+                            <div>
+                                <strong>Assignment reminders</strong>
+                                <span>Receive reminders before deadlines.</span>
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div>
+                                <strong>Grade updates</strong>
+                                <span>Notify me when grades change.</span>
+                            </div>
+
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-section">
+
+                        <h2>Danger zone</h2>
+
+                        <button class="danger-button" id="clearData">
+                            Clear local data
+                        </button>
+
+                    </div>
+
                 </div>
 
-            </div>
+            </section>
 
-        </section>
-
-        <!-- GRADES -->
-        <section id="grades" class="page">
-
-            <h2 class="page-title">Grades</h2>
-
-            <div class="card">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Last Test</th>
-                            <th>Average</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Mathematics</td>
-                            <td>94%</td>
-                            <td>92%</td>
-                            <td><span class="good">Excellent</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>English</td>
-                            <td>88%</td>
-                            <td>87%</td>
-                            <td><span class="good">Good</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>Computer Science</td>
-                            <td>98%</td>
-                            <td>95%</td>
-                            <td><span class="good">Excellent</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>Chemistry</td>
-                            <td>82%</td>
-                            <td>84%</td>
-                            <td><span class="average">Good</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>Geography</td>
-                            <td>91%</td>
-                            <td>90%</td>
-                            <td><span class="good">Excellent</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
-    <!-- ADD TASK MODAL -->
-    <div class="modal" id="taskModal">
+</div>
 
-        <div class="modal-content">
 
-            <button class="close" id="closeModal">×</button>
+<!-- NOTIFICATION PANEL -->
+<div class="notification-panel" id="notificationPanel">
 
-            <h2>Add Task</h2>
+    <div class="notification-header">
+        <h3>Notifications</h3>
+        <button id="closeNotifications">×</button>
+    </div>
 
-            <input id="taskName" type="text" placeholder="Task name">
-
-            <select id="taskSubject">
-                <option>Mathematics</option>
-                <option>English</option>
-                <option>Computer Science</option>
-                <option>Chemistry</option>
-                <option>Geography</option>
-                <option>History</option>
-            </select>
-
-            <input id="taskDate" type="date">
-
-            <button class="primary-btn full" id="saveTask">Add Task</button>
-
+    <div class="notification-item">
+        <span class="notification-icon purple">!</span>
+        <div>
+            <strong>Math assignment due tomorrow</strong>
+            <span>2 hours ago</span>
         </div>
+    </div>
+
+    <div class="notification-item">
+        <span class="notification-icon green">✓</span>
+        <div>
+            <strong>Your CS grade was updated</strong>
+            <span>Yesterday</span>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <span class="notification-icon blue">◷</span>
+        <div>
+            <strong>Study goal is 85% complete</strong>
+            <span>Yesterday</span>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- TASK MODAL -->
+<div class="modal" id="taskModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" id="closeTaskModal">×</button>
+
+        <div class="modal-header">
+            <span class="modal-icon">✓</span>
+
+            <div>
+                <h2>Create task</h2>
+                <p>Add an assignment or reminder.</p>
+            </div>
+        </div>
+
+        <label>Task name</label>
+
+        <input
+            type="text"
+            id="taskName"
+            placeholder="e.g. Complete algebra homework"
+        >
+
+        <label>Subject</label>
+
+        <select id="taskSubject">
+            <option>Mathematics</option>
+            <option>English</option>
+            <option>Computer Science</option>
+            <option>Chemistry</option>
+            <option>History</option>
+            <option>Geography</option>
+        </select>
+
+        <label>Deadline</label>
+
+        <input type="date" id="taskDate">
+
+        <label>Priority</label>
+
+        <select id="taskPriority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <button class="primary-button modal-submit" id="saveTask">
+            Create task
+        </button>
 
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+
+<!-- NOTE MODAL -->
+<div class="modal" id="noteModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" id="closeNoteModal">×</button>
+
+        <div class="modal-header">
+            <span class="modal-icon">✎</span>
+
+            <div>
+                <h2>New note</h2>
+                <p>Create a personal note.</p>
+            </div>
+        </div>
+
+        <label>Title</label>
+
+        <input
+            type="text"
+            id="noteTitle"
+            placeholder="Note title"
+        >
+
+        <label>Content</label>
+
+        <textarea
+            id="noteContent"
+            class="modal-textarea"
+            placeholder="Write something..."
+        ></textarea>
+
+        <button class="primary-button modal-submit" id="saveNewNote">
+            Save note
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
