@@ -1,1 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <aside class="sidebar">
+        <div class="logo">Student<span>Hub</span></div>
+
+        <nav>
+            <button class="nav-item active" data-page="dashboard">🏠 Dashboard</button>
+            <button class="nav-item" data-page="subjects">📚 Subjects</button>
+            <button class="nav-item" data-page="tasks">✅ Tasks</button>
+            <button class="nav-item" data-page="schedule">📅 Schedule</button>
+            <button class="nav-item" data-page="grades">📊 Grades</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="nav-item">⚙️ Settings</button>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header>
+            <div>
+                <p class="welcome">Welcome back</p>
+                <h1>Student Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">S</div>
+                <div>
+                    <strong>Student</strong>
+                    <small>Class 11-A</small>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active-page">
+
+            <div class="stats">
+                <div class="stat-card">
+                    <span>📚</span>
+                    <div>
+                        <small>Subjects</small>
+                        <h2>6</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>✅</span>
+                    <div>
+                        <small>Completed Tasks</small>
+                        <h2 id="completedCount">12</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>📝</span>
+                    <div>
+                        <small>Average Grade</small>
+                        <h2>89%</h2>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>📅</span>
+                    <div>
+                        <small>Upcoming</small>
+                        <h2>4</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Today's Schedule</h2>
+                        <button class="small-btn" data-page="schedule">View all</button>
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="time">08:30</div>
+                        <div>
+                            <strong>Mathematics</strong>
+                            <p>Room 204</p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="time">10:15</div>
+                        <div>
+                            <strong>English</strong>
+                            <p>Room 112</p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="time">12:00</div>
+                        <div>
+                            <strong>Computer Science</strong>
+                            <p>Computer Lab</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Upcoming Tasks</h2>
+                        <button class="small-btn" data-page="tasks">View all</button>
+                    </div>
+
+                    <div id="dashboardTasks"></div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Subject Progress</h2>
+                </div>
+
+                <div class="progress-list">
+
+                    <div class="progress-row">
+                        <div>
+                            <strong>Mathematics</strong>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress">
+                            <div style="width:92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div>
+                            <strong>English</strong>
+                            <span>87%</span>
+                        </div>
+                        <div class="progress">
+                            <div style="width:87%"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-row">
+                        <div>
+                            <strong>Computer Science</strong>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div style="width:95%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SUBJECTS -->
+        <section id="subjects" class="page">
+
+            <h2 class="page-title">My Subjects</h2>
+
+            <div class="subject-grid">
+
+                <div class="subject-card">
+                    <div class="subject-icon">∑</div>
+                    <h3>Mathematics</h3>
+                    <p>Teacher: Mr. Smith</p>
+                    <strong>92%</strong>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">A</div>
+                    <h3>English</h3>
+                    <p>Teacher: Mrs. Johnson</p>
+                    <strong>87%</strong>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">💻</div>
+                    <h3>Computer Science</h3>
+                    <p>Teacher: Mr. Brown</p>
+                    <strong>95%</strong>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">⚗</div>
+                    <h3>Chemistry</h3>
+                    <p>Teacher: Mrs. Davis</p>
+                    <strong>84%</strong>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">🌍</div>
+                    <h3>Geography</h3>
+                    <p>Teacher: Mr. Wilson</p>
+                    <strong>90%</strong>
+                </div>
+
+                <div class="subject-card">
+                    <div class="subject-icon">📖</div>
+                    <h3>History</h3>
+                    <p>Teacher: Mrs. Taylor</p>
+                    <strong>88%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TASKS -->
+        <section id="tasks" class="page">
+
+            <div class="page-heading">
+                <div>
+                    <h2 class="page-title">Tasks</h2>
+                    <p>Add and manage your assignments.</p>
+                </div>
+
+                <button class="primary-btn" id="addTaskBtn">+ Add Task</button>
+            </div>
+
+            <div class="card">
+                <div id="taskList"></div>
+            </div>
+
+        </section>
+
+        <!-- SCHEDULE -->
+        <section id="schedule" class="page">
+
+            <h2 class="page-title">Weekly Schedule</h2>
+
+            <div class="card schedule-table">
+
+                <div class="day">
+                    <h3>Monday</h3>
+                    <p>08:30 — Mathematics</p>
+                    <p>10:15 — English</p>
+                    <p>12:00 — Computer Science</p>
+                    <p>14:00 — History</p>
+                </div>
+
+                <div class="day">
+                    <h3>Tuesday</h3>
+                    <p>08:30 — Chemistry</p>
+                    <p>10:15 — Mathematics</p>
+                    <p>12:00 — Geography</p>
+                    <p>14:00 — English</p>
+                </div>
+
+                <div class="day">
+                    <h3>Wednesday</h3>
+                    <p>08:30 — Computer Science</p>
+                    <p>10:15 — History</p>
+                    <p>12:00 — Mathematics</p>
+                </div>
+
+                <div class="day">
+                    <h3>Thursday</h3>
+                    <p>08:30 — English</p>
+                    <p>10:15 — Chemistry</p>
+                    <p>12:00 — Geography</p>
+                </div>
+
+                <div class="day">
+                    <h3>Friday</h3>
+                    <p>08:30 — Mathematics</p>
+                    <p>10:15 — Computer Science</p>
+                    <p>12:00 — English</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- GRADES -->
+        <section id="grades" class="page">
+
+            <h2 class="page-title">Grades</h2>
+
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Last Test</th>
+                            <th>Average</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>94%</td>
+                            <td>92%</td>
+                            <td><span class="good">Excellent</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>English</td>
+                            <td>88%</td>
+                            <td>87%</td>
+                            <td><span class="good">Good</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Computer Science</td>
+                            <td>98%</td>
+                            <td>95%</td>
+                            <td><span class="good">Excellent</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Chemistry</td>
+                            <td>82%</td>
+                            <td>84%</td>
+                            <td><span class="average">Good</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Geography</td>
+                            <td>91%</td>
+                            <td>90%</td>
+                            <td><span class="good">Excellent</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ADD TASK MODAL -->
+    <div class="modal" id="taskModal">
+
+        <div class="modal-content">
+
+            <button class="close" id="closeModal">×</button>
+
+            <h2>Add Task</h2>
+
+            <input id="taskName" type="text" placeholder="Task name">
+
+            <select id="taskSubject">
+                <option>Mathematics</option>
+                <option>English</option>
+                <option>Computer Science</option>
+                <option>Chemistry</option>
+                <option>Geography</option>
+                <option>History</option>
+            </select>
+
+            <input id="taskDate" type="date">
+
+            <button class="primary-btn full" id="saveTask">Add Task</button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
